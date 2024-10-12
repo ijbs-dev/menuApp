@@ -1,79 +1,170 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# MenuReactNativeApp
 
-# Getting Started
+## Índice
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+- [Visão Geral](#visão-geral)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Instalação e Configuração](#instalação-e-configuração)
+- [Executando o Projeto](#executando-o-projeto)
+- [Configuração do Backend](#configuração-do-backend)
+- [Como Usar o App](#como-usar-o-app)
+- [Funcionalidades](#funcionalidades)
 
-## Step 1: Start the Metro Server
+---
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Visão Geral
 
-To start Metro, run the following command from the _root_ of your React Native project:
+O `MenuReactNativeApp` é um projeto React Native desenvolvido para ser um aplicativo simples e interativo, focado em calcular somas e exibir a distribuição percentual de faturamento por região. O aplicativo utiliza React Native no frontend, com um backend em NestJS responsável por processar a lógica de negócio e fornecer endpoints de API.
 
-```bash
-# using npm
-npm start
+Este projeto segue boas práticas de design de UI/UX e arquitetura de código, separando a lógica em componentes e telas bem estruturadas.
 
-# OR using Yarn
-yarn start
+---
+
+## Tecnologias Utilizadas
+
+- **React Native (v0.75.4)**
+- **TypeScript**
+- **NestJS (v10.4.4)**
+- **Axios (v1.7.7)**
+- **Metro Bundler**
+- **Android Studio**
+- **Node.js**
+- **Yarn**
+
+---
+
+## Estrutura do Projeto
+
+```plaintext
+/src
+  /components
+    - ResultModal.tsx         # Exibe os resultados da soma ou percentual em um modal
+  /screens
+    - MenuScreen.tsx           # Tela principal com os botões para calcular soma ou percentual
+  - App.tsx                    # Ponto de entrada da aplicação
+/backend.js                     # Backend com lógica NestJS para os endpoints de soma e percentual
 ```
 
-## Step 2: Start your Application
+- **App.tsx**: Arquivo de entrada do aplicativo que carrega o menu principal.
+- **MenuScreen.tsx**: Tela onde o usuário escolhe entre calcular a soma ou os percentuais.
+- **ResultModal.tsx**: Componente modal para exibir os resultados de forma dinâmica, com base na escolha do usuário.
+- **backend.js**: Lógica do backend utilizando NestJS, que processa as requisições para o cálculo da soma e percentual.
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+---
 
-### For Android
+## Instalação e Configuração
+
+### Pré-requisitos
+
+- Node.js >= v18
+- Yarn (opcional, mas recomendado)
+- Android Studio (para emulação Android)
+- AVD (Android Virtual Device) configurado corretamente
+
+### 1. Clonar o Repositório
 
 ```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
+git clone https://github.com/seu-usuario/MenuReactNativeApp.git
+cd MenuReactNativeApp
 ```
 
-### For iOS
+### 2. Instalar as Dependências do Frontend
 
 ```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+yarn install
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+ou
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+```bash
+npm install
+```
 
-## Step 3: Modifying your App
+### 3. Instalar as Dependências do Backend
 
-Now that you have successfully run the app, let's modify it.
+Para rodar o backend, instale as dependências necessárias:
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+```bash
+cd MenuReactNativeApp
+npm install @nestjs/core @nestjs/common @nestjs/platform-express
+```
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+### 4. Configurar o Android Studio
 
-## Congratulations! :tada:
+Certifique-se de que o Android Studio está instalado e que um emulador está configurado. Caso ainda não tenha o Android Studio, siga estas instruções:
 
-You've successfully run and modified your React Native App. :partying_face:
+1. Baixe o Android Studio [aqui](https://developer.android.com/studio).
+2. Instale e configure um AVD (Android Virtual Device) com a imagem de sistema desejada.
+3. Abra o AVD Manager no Android Studio e confirme que o emulador está pronto para uso.
 
-### Now what?
+### 5. Compilar o Projeto
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+```bash
+npx react-native run-android
+```
 
-# Troubleshooting
+Certifique-se de que o emulador Android está em execução.
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+---
 
-# Learn More
+## Executando o Projeto
 
-To learn more about React Native, take a look at the following resources:
+### 1. Iniciar o Servidor Backend
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+```bash
+npm run backend
+```
+
+Este comando iniciará o backend em NestJS, que será executado em `http://localhost:3000`.
+
+### 2. Iniciar o App React Native
+
+```bash
+npx react-native start --reset-cache
+```
+
+Em um terminal separado:
+
+```bash
+npx react-native run-android
+```
+
+Isso iniciará o aplicativo no emulador Android ou em um dispositivo físico conectado.
+
+---
+
+## Configuração do Backend
+
+O backend foi construído utilizando NestJS e fornece dois endpoints:
+
+1. `/questao1`: Calcula a soma de um intervalo específico.
+2. `/questao2`: Calcula e retorna a distribuição percentual de faturamento entre diferentes regiões.
+
+### Como Iniciar o Backend
+
+```bash
+npm run backend
+```
+
+O servidor estará disponível em `http://localhost:3000`. Certifique-se de que o aplicativo móvel pode se comunicar com o backend utilizando `http://10.0.2.2:3000` (emulador Android).
+
+---
+
+## Como Usar o App
+
+1. **Calcular Soma (Questão 1)**: Toque no botão para calcular a soma de um intervalo.
+2. **Calcular Percentual (Questão 2)**: Toque no botão para calcular os percentuais de faturamento entre as regiões (SP, RJ, MG, etc.).
+
+Assim que o cálculo for concluído, um modal aparecerá mostrando o resultado. Você pode retornar ao menu principal tocando em "Voltar ao Menu".
+
+---
+
+## Funcionalidades
+
+- **Estrutura de Componentes Modular**: O aplicativo foi organizado com componentes e telas reutilizáveis, facilitando a escalabilidade e manutenção.
+- **Modal Dinâmico**: Exibe diferentes resultados (soma ou percentual) com base na escolha do usuário.
+- **API NestJS**: O backend utiliza NestJS, tornando o código do servidor modular e fácil de estender.
+- **Comunicação Frontend-Backend**: O Axios é utilizado para fazer as requisições HTTP à API backend para obtenção de dados.
+
+---
