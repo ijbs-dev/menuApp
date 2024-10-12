@@ -1,4 +1,3 @@
-// App.tsx
 import React from 'react';
 import MenuScreen from './screens/MenuScreen';
 import { StyleSheet, SafeAreaView } from 'react-native';

@@ -1,4 +1,3 @@
-// src/screens/MenuScreen.tsx
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import axios from 'axios';
@@ -10,26 +9,25 @@ const MenuScreen = () => {
   const [modalVisible, setModalVisible] = useState<boolean>(false);
   const [activeModal, setActiveModal] = useState<string | null>(null);
 
-  // Função para obter a soma da Questão 1
+
   const obterSoma = () => {
     axios
       .get('http://10.0.2.2:3000/questao1')
       .then((response) => {
         setSoma(response.data.soma);
         setActiveModal('soma');
-        setModalVisible(true); // Abre o modal
+        setModalVisible(true); 
       })
       .catch((error) => console.error(error));
   };
 
-  // Função para obter os percentuais da Questão 2
   const obterPercentuais = () => {
     axios
       .get('http://10.0.2.2:3000/questao2')
       .then((response) => {
         setPercentuais(response.data);
         setActiveModal('percentuais');
-        setModalVisible(true); // Abre o modal
+        setModalVisible(true); 
       })
       .catch((error) => console.error(error));
   };
@@ -46,7 +44,7 @@ const MenuScreen = () => {
         <Text style={styles.buttonText}>Calcular Percentual</Text>
       </TouchableOpacity>
 
-      {/* Modal para exibir o resultado */}
+
       <ResultModal
         modalVisible={modalVisible}
         closeModal={() => setModalVisible(false)}

@@ -1,7 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { Module, Controller, Get } from '@nestjs/common';
 
-// Controlador para a questão 1 (Cálculo de Soma)
 @Controller('questao1')
 class Questao1Controller {
   @Get()
@@ -19,7 +18,6 @@ class Questao1Controller {
   }
 }
 
-// Controlador para a questão 2 (Cálculo Percentual de Faturamento)
 @Controller('questao2')
 class Questao2Controller {
   @Get()
@@ -42,17 +40,14 @@ class Questao2Controller {
   }
 }
 
-// Módulo principal do Nest.js
 @Module({
   controllers: [Questao1Controller, Questao2Controller],
 })
 class AppModule {}
 
-// Função para inicializar o Nest.js
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   
-  // Habilitar CORS para permitir requisições do frontend
   app.enableCors();
 
   await app.listen(3000);

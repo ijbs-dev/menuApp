@@ -1,4 +1,3 @@
-// src/components/ResultModal.tsx
 import React, { useState } from 'react';
 import { Modal, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -53,7 +52,7 @@ const ResultModal: React.FC<ResultModalProps> = ({
             </View>
           )}
 
-          {/* Ícone de detalhes */}
+          
           <TouchableOpacity
             style={styles.detailsIcon}
             onPress={() => setDetailsVisible(true)}
@@ -61,7 +60,7 @@ const ResultModal: React.FC<ResultModalProps> = ({
             <Icon name="info" size={28} color="#000" />
           </TouchableOpacity>
 
-          {/* Modal para exibir a explicação da lógica */}
+          
           <Modal
             animationType="slide"
             transparent={true}
